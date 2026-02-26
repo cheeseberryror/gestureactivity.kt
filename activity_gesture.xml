@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".GestureActivity">
+
+    <!-- Camera Preview Container -->
+    <FrameLayout
+        android:id="@+id/cameraContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/topPanel">
+
+        <!-- Camera Preview (MUST BE FIRST for proper layering) -->
+        <androidx.camera.view.PreviewView
+            android:id="@+id/previewView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- Landmark Overlay - MUST BE TRANSPARENT and ON TOP -->
+        <com.example.myfslapplication.GestureOverlayView
+            android:id="@+id/overlayView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent" />
+
+    </FrameLayout>
+
+    <!-- Top Panel - Prediction Display (Status Info) -->
+    <LinearLayout
+        android:id="@+id/topPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/debugPanel"
+        android:orientation="vertical"
+        android:background="#1a1a1a"
+        android:padding="12dp">
+
+        <!-- Gesture Prediction -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:text="Gesture:"
+                android:textSize="14sp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvPrediction"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Ready"
+                android:textSize="18sp"
+                android:textColor="#00FF00"
+                android:textStyle="bold"
+                android:gravity="start"
+                android:ellipsize="end"
+                android:maxLines="1" />
+
+            <ProgressBar
+                android:id="@+id/progressHold"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:visibility="invisible"
+                android:indeterminate="true"
+                android:layout_marginStart="8dp" />
+
+        </LinearLayout>
+
+        <!-- Confidence Percentage -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:text="Confidence:"
+                android:textSize="14sp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvConfidence"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text=""
+                android:textSize="16sp"
+                android:textColor="#00BCD4"
+                android:gravity="start" />
+
+        </LinearLayout>
+        <!-- CRITICAL: Add new Instructions TextView here -->
+        <!-- Corrected XML for activity_gesture.xml -->
+        <TextView
+            android:id="@+id/tvInstructions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Status: Ready"
+            android:textSize="12sp"
+            android:textColor="#BBBBBB"
+            android:gravity="start"
+            android:layout_marginTop="8dp" />
+
+
+    </LinearLayout>
+
+    <!-- Debug Panel - Landmark Information -->
+    <LinearLayout
+        android:id="@+id/debugPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottomPanel"
+        android:orientation="vertical"
+        android:background="#0a0a0a"
+        android:padding="8dp">
+
+        <!-- Debug Title -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="6dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔍 DEBUG"
+                android:textSize="11sp"
+                android:textColor="#FF9800"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="#333333"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp" />
+
+        </LinearLayout>
+
+        <!-- Landmarks ScrollView -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxHeight="100dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Hand Count -->
+                <TextView
+                    android:id="@+id/tvHandCount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hands: 0"
+                    android:textSize="11sp"
+                    android:textColor="#90CAF9"
+                    android:lineSpacingExtra="2dp"
+                    android:padding="4dp" />
+
+                <!-- Hand 1 Landmarks -->
+                <TextView
+                    android:id="@+id/tvHand1Landmarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="10sp"
+                    android:textColor="#A5D6A7"
+                    android:typeface="monospace"
+                    android:lineSpacingExtra="1dp"
+                    android:padding="4dp" />
+
+                <!-- Hand 2 Landmarks -->
+                <TextView
+                    android:id="@+id/tvHand2Landmarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="10sp"
+                    android:textColor="#A5D6A7"
+                    android:typeface="monospace"
+                    android:lineSpacingExtra="1dp"
+                    android:padding="4dp" />
+
+                <!-- Face Landmarks -->
+                <TextView
+                    android:id="@+id/tvFaceLandmarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="10sp"
+                    android:textColor="#FFCC80"
+                    android:typeface="monospace"
+                    android:lineSpacingExtra="1dp"
+                    android:padding="4dp" />
+
+                <!-- Shoulder Landmarks -->
+                <TextView
+                    android:id="@+id/tvShoulderLandmarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="10sp"
+                    android:textColor="#EF9A9A"
+                    android:typeface="monospace"
+                    android:lineSpacingExtra="1dp"
+                    android:padding="4dp" />
+
+                <!-- Feature Vector Info -->
+                <TextView
+                    android:id="@+id/tvFeatureInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="10sp"
+                    android:textColor="#CE93D8"
+                    android:lineSpacingExtra="1dp"
+                    android:padding="4dp" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <!-- Bottom Panel - Sentence Builder and Controls -->
+    <LinearLayout
+        android:id="@+id/bottomPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:background="#1a1a1a"
+        android:padding="12dp">
+
+        <!-- Sentence Display Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="8dp"
+            app:cardBackgroundColor="#0a0a0a"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <!-- Title -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="OUTPUT TEXT"
+                    android:textSize="11sp"
+                    android:textColor="#888888"
+                    android:textStyle="bold"
+                    android:gravity="start"
+                    android:paddingBottom="6dp" />
+
+                <!-- Sentence Content with ScrollView -->
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxHeight="80dp">
+
+                    <TextView
+                        android:id="@+id/tvSentence"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Sentence will appear here..."
+                        android:textColorHint="#555555"
+                        android:textSize="16sp"
+                        android:textColor="#00FF00"
+                        android:gravity="start|top"
+                        android:lineSpacingExtra="3dp"
+                        android:padding="8dp"
+                        android:minHeight="40dp" />
+
+                </ScrollView>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Button Controls Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:spacing="8dp"
+            android:layout_marginTop="4dp">
+
+            <!-- SPACE Button -->
+            <Button
+                android:id="@+id/btnSpace"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="SPACE"
+                android:textSize="13sp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:backgroundTint="#2196F3"
+                android:padding="8dp" />
+
+            <!-- SPEAK Button -->
+            <Button
+                android:id="@+id/btnSpeak"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="SPEAK"
+                android:textSize="13sp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:backgroundTint="#4CAF50"
+                android:padding="8dp" />
+
+            <!-- CLEAR Button -->
+            <Button
+                android:id="@+id/btnClear"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="CLEAR"
+                android:textSize="13sp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:backgroundTint="#F44336"
+                android:padding="8dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

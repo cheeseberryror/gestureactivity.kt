@@ -1,0 +1,427 @@
+{
+  "gesture_classes": {
+    "single_frame": [
+      {
+        "name": "hello",
+        "output_word": "hello"
+      },
+      {
+        "name": "2",
+        "output_word": "2"
+      },
+      {
+        "name": "4",
+        "output_word": "4"
+      },
+      {
+        "name": "5",
+        "output_word": "5"
+      },
+      {
+        "name": "monday",
+        "output_word": "monday"
+      },
+      {
+        "name": "6",
+        "output_word": "6"
+      },
+      {
+        "name": "7",
+        "output_word": "7"
+      },
+      {
+        "name": "8",
+        "output_word": "8"
+      },
+      {
+        "name": "9",
+        "output_word": "9"
+      },
+      {
+        "name": "wednesday",
+        "output_word": "wednesday"
+      },
+      {
+        "name": "friday",
+        "output_word": "friday"
+      },
+      {
+        "name": "saturday",
+        "output_word": "saturday"
+      },
+      {
+        "name": "sunday",
+        "output_word": "sunday"
+      },
+      {
+        "name": "1",
+        "output_word": "1"
+      },
+      {
+        "name": "blind",
+        "output_word": "blind"
+      },
+      {
+        "name": "wrong",
+        "output_word": "wrong"
+      },
+      {
+        "name": "brown",
+        "output_word": "brown"
+      },
+      {
+        "name": "correct",
+        "output_word": "correct"
+      },
+      {
+        "name": "gray",
+        "output_word": "gray"
+      },
+      {
+        "name": "meat",
+        "output_word": "meat"
+      },
+      {
+        "name": "rice",
+        "output_word": "rice"
+      },
+      {
+        "name": "thank you",
+        "output_word": "thank you"
+      },
+      {
+        "name": "today",
+        "output_word": "today"
+      },
+      {
+        "name": "violet",
+        "output_word": "violet"
+      },
+      {
+        "name": "wheelchair person",
+        "output_word": "wheelchair person"
+      },
+      {
+        "name": "bread",
+        "output_word": "bread"
+      },
+      {
+        "name": "fish",
+        "output_word": "fish"
+      },
+      {
+        "name": "chicken",
+        "output_word": "chicken"
+      },
+      {
+        "name": "crab",
+        "output_word": "crab"
+      },
+      {
+        "name": "cold",
+        "output_word": "cold"
+      },
+      {
+        "name": "shrimp",
+        "output_word": "shrimp"
+      },
+      {
+        "name": "black",
+        "output_word": "black"
+      },
+      {
+        "name": "blue",
+        "output_word": "blue"
+      },
+      {
+        "name": "green",
+        "output_word": "green"
+      },
+      {
+        "name": "i'm fine",
+        "output_word": "i'm fine"
+      },
+      {
+        "name": "orange",
+        "output_word": "orange"
+      },
+      {
+        "name": "pink",
+        "output_word": "pink"
+      },
+      {
+        "name": "know",
+        "output_word": "know"
+      },
+      {
+        "name": "slow",
+        "output_word": "slow"
+      },
+      {
+        "name": "fast",
+        "output_word": "fast"
+      },
+      {
+        "name": "cousin",
+        "output_word": "cousin"
+      },
+      {
+        "name": "married",
+        "output_word": "married"
+      },
+      {
+        "name": "juice",
+        "output_word": "juice"
+      },
+      {
+        "name": "coffee",
+        "output_word": "coffee"
+      },
+      {
+        "name": "tea",
+        "output_word": "tea"
+      },
+      {
+        "name": "wine",
+        "output_word": "wine"
+      },
+      {
+        "name": "yellow",
+        "output_word": "yellow"
+      },
+      {
+        "name": "3",
+        "output_word": "3"
+      },
+      {
+        "name": "mother",
+        "output_word": "mother"
+      },
+      {
+        "name": "uncle",
+        "output_word": "uncle"
+      },
+      {
+        "name": "understand",
+        "output_word": "understand"
+      },
+      {
+        "name": "red",
+        "output_word": "red"
+      },
+      {
+        "name": "beer",
+        "output_word": "beer"
+      },
+      {
+        "name": "yes",
+        "output_word": "yes"
+      },
+      {
+        "name": "sugar",
+        "output_word": "sugar"
+      },
+      {
+        "name": "auntie",
+        "output_word": "auntie"
+      },
+      {
+        "name": "longganisa",
+        "output_word": "longganisa"
+      },
+      {
+        "name": "10",
+        "output_word": "10"
+      },
+      {
+        "name": "i love you",
+        "output_word": "I love you"
+      },
+      {
+        "name": "love",
+        "output_word": "love"
+      },
+      {
+        "name": "internet",
+        "output_word": "internet"
+      },
+      {
+        "name": "cellphone",
+        "output_word": "cellphone"
+      }
+    ],
+    "sequences": [
+      {
+        "starter": "tuesday",
+        "starter_output": "tuesday",
+        "options": [
+          {
+            "name": "thursday",
+            "output": "thursday",
+            "next_options": []
+          }
+        ],
+        "can_standalone": true
+      },
+      {
+        "starter": "you",
+        "starter_output": "you",
+        "options": [
+          {
+            "name": "how are you",
+            "output": "how are you",
+            "next_options": []
+          }
+        ],
+        "can_standalone": true
+      },
+      {
+        "starter": "father",
+        "starter_output": "father",
+        "options": [
+          {
+            "name": "parents",
+            "output": "parents",
+            "next_options": []
+          }
+        ],
+        "can_standalone": true
+      },
+      {
+        "starter": "good",
+        "starter_output": "good",
+        "options": [
+          {
+            "name": "morning",
+            "output": "morning",
+            "next_options": []
+          },
+          {
+            "name": "afternoon",
+            "output": "afternoon",
+            "next_options": []
+          },
+          {
+            "name": "evening",
+            "output": "evening",
+            "next_options": []
+          }
+        ],
+        "can_standalone": true
+      },
+      {
+        "starter": "no",
+        "starter_output": "no",
+        "options": [],
+        "can_standalone": true
+      }
+    ],
+    "prefix_sequences": [],
+    "multi_step_phrases": [
+      {
+        "gestures": [
+          "don'tunderstand1",
+          "don'tunderstand2"
+        ],
+        "output": "don't understand",
+        "type": "multi_step_phrase"
+      },
+      {
+        "gestures": [
+          "deaf1",
+          "deaf2"
+        ],
+        "output": "deaf",
+        "type": "multi_step_phrase"
+      },
+      {
+        "gestures": [
+          "hard of hearing 1",
+          "hard of hearing 2"
+        ],
+        "output": "hard of hearing",
+        "type": "multi_step_phrase"
+      },
+      {
+        "gestures": [
+          "you're welcome 1",
+          "you're welcome 2"
+        ],
+        "output": "you're welcome",
+        "type": "multi_step_phrase"
+      },
+      {
+        "gestures": [
+          "nice to meet you 1",
+          "nice to meet you 2"
+        ],
+        "output": "nice to meet you",
+        "type": "multi_step_phrase"
+      },
+      {
+        "gestures": [
+          "tomorrow 1",
+          "tomorrow 2"
+        ],
+        "output": "tomorrow",
+        "type": "multi_step_phrase"
+      },
+      {
+        "gestures": [
+          "white 1",
+          "white 2"
+        ],
+        "output": "white",
+        "type": "multi_step_phrase"
+      },
+      {
+        "gestures": [
+          "grandfather 1",
+          "grandfather 2"
+        ],
+        "output": "grandfather",
+        "type": "multi_step_phrase"
+      },
+      {
+        "gestures": [
+          "grandmother 1",
+          "grandmother 2"
+        ],
+        "output": "grandmother",
+        "type": "multi_step_phrase"
+      },
+      {
+        "gestures": [
+          "hot 1",
+          "hot 2"
+        ],
+        "output": "hot",
+        "type": "multi_step_phrase"
+      },
+      {
+        "gestures": [
+          "egg 1",
+          "egg 2"
+        ],
+        "output": "egg",
+        "type": "multi_step_phrase"
+      },
+      {
+        "gestures": [
+          "tomorrow1",
+          "tomorrow2"
+        ],
+        "output": "tomorrow",
+        "type": "multi_step_phrase"
+      },
+      {
+        "gestures": [
+          "seeyoutomorrow1",
+          "seeyoutomorrow2"
+        ],
+        "output": "see you tomorrow",
+        "type": "multi_step_phrase"
+      }
+    ]
+  }
+}
